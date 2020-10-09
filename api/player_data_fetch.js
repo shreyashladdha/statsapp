@@ -1,8 +1,5 @@
-// import {APIKEY} from './cred.js' ;
 
-const { Body } = require("node-fetch");
-
-var APIKEY="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
+var APIKEY = "ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
 var PID = "35320"
 var url = "https://cricapi.com/api/playerStats?apikey=" + APIKEY + "&pid=" + PID;
 fetch(url).then(
@@ -19,10 +16,12 @@ fetch(url).then(
 
 function playerSearchFunction() {
     console.log("playerSerchFunctionCalled");
+    var searchResultDisplaySec = document.querySelector(".search_result");
+    var searchResultDisplaySecid=document.getElementById("search_result");
+    searchResultDisplaySecid.textContent='';
     var input = document.getElementById("inputSearch").value;
     console.log(input);
-    var searchURL = "https://cricapi.com/api/playerFinder?apikey=" +APIKEY+"&name="+input;
-
+    var searchURL = "https://cricapi.com/api/playerFinder?apikey=" + APIKEY + "&name=" + input;
     fetch(searchURL).then(
         function (response) {
             if (response.status !== 200) {
@@ -31,6 +30,16 @@ function playerSearchFunction() {
             }
             response.json().then(function (result) {
                 console.log(result);
+
+                for (var i = 0; i < result.data.length; i++) {
+                    console.log(result.data[i].fullName);
+                    var temPlayer = result.data[i];
+                    var temDiv = document.createElement("div");
+                    temDiv.innerHTML = temPlayer.fullName;
+                    temDiv.append(temPlayer.fullName);
+                    temDiv.append(temPlayer.pid);
+                    searchResultDisplaySec.append(temDiv);
+                }
             });
         }
     );
