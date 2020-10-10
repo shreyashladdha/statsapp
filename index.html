@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>IPL Statistics</title>
     <!--CSS--Here-->
     <link rel="stylesheet" href="assets/navbar.css">
     <link rel="stylesheet" href="assets/main.css">
     <link rel="stylesheet" href="assets/slider.css">
+    <style>
+      .matches > li {
+        display: inline;
+      }
+    </style>
 </head>
 <body>
     <div class="nav">
@@ -49,9 +55,12 @@
         <a class="next" onclick="showSlides()">&#10095;</a>
     </div>
     <div id="matchList">
-
+     
     </div>
+    <ul id="matches" style="margin-top: 12%;"></ul>
+    <ul id="matches-1"></ul>
 <script src="assets/slider.js" ></script>
 <!-- <script src="api/dataetch.js"></script> -->
+<script src="api/matchscore.js"></script>
 </body>
 </html>
