@@ -1,7 +1,10 @@
+// const { pid } = require("process");
+
 var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
 function getPlayerDetail(PID) {
     console.log("get player detail FunctionCalled");
     var url = "https://cricapi.com/api/playerStats?apikey=" + APIKEY + "&pid=" + PID;
+    console.log(url);
     fetch(url).then(
         function (response) {
             if (response.status !== 200) {
@@ -14,7 +17,6 @@ function getPlayerDetail(PID) {
         }
     );
 }
-
 
 function playerSearchFunction() {
     console.log("playerSerchFunctionCalled");
@@ -35,11 +37,11 @@ function playerSearchFunction() {
                 for (var i = 0; i < result.data.length; i++) {
                     console.log(result.data[i].fullName);
                     var temPlayer = result.data[i];
-                    var temDiv = document.createElement("div");
-                    temDiv.innerHTML = temPlayer.fullName;
-                    temDiv.append(temPlayer.fullName);
-                    temDiv.append(temPlayer.pid);
-                    temDiv.onclick = getPlayerDetail(temPlayer.pid);
+                    var temDiv = document.createElement("button");
+                    var FullNameHead=document.createElement("h1");
+                    FullNameHead.append(temPlayer.fullName);
+                    temDiv.append(FullNameHead);
+                    temDiv.addEventListener('click',getPlayerDetail(temPlayer.pid));
                     searchResultDisplaySec.append(temDiv);
                 }
             });
