@@ -13,6 +13,24 @@ function getPlayerDetail(PID) {
             }
             response.json().then(function (result) {
                 console.log(result);
+                var searchResultDisplaySecid = document.getElementById("search_result");
+                searchResultDisplaySecid.innerHTML = '';
+                var playerStatCard=document.createElement('div')
+                var name=document.createElement('h1');
+                var age=document.createElement('h6'),
+                country=document.createElement('h6'),
+                profile=document.createElement('h6'),
+                playRole=document.createElement('h6'),
+                imageURL=result["imageURL"],
+                image=document.createElement('img');
+                name.append(result.fullName);
+                age.append(result["currentAge"]);
+                profile.append(result["profile"]);
+                playRole.append(result["playingRole"]);
+                image.src=imageURL;
+                playerStatCard.append(name);
+                playerStatCard.append(image,age,playRole,country,profile);
+                searchResultDisplaySecid.append(playerStatCard);
             });
         }
     );
@@ -33,7 +51,6 @@ function playerSearchFunction() {
                 return;
             }
             response.json().then(function (result) {
-                console.log(result);
                 for (var i = 0; i < result.data.length; i++) {
                     console.log(result.data[i].fullName);
                     var temPlayer = result.data[i];
@@ -41,7 +58,7 @@ function playerSearchFunction() {
                     var FullNameHead=document.createElement("h1");
                     FullNameHead.append(temPlayer.fullName);
                     temDiv.append(FullNameHead);
-                    temDiv.addEventListener('click',getPlayerDetail(temPlayer.pid));
+                    temDiv.addEventListener('click',()=>{getPlayerDetail(temPlayer.pid)});
                     searchResultDisplaySec.append(temDiv);
                 }
             });
