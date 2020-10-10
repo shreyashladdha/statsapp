@@ -17,7 +17,7 @@ fetch(requestURL).then(
                 console.log(IPLMatches);
                 // var body=document.getElementById("matchList");
                 // body.innerHTML=String(IPLMatches);
-               data.matches.forEach(function(md) {
+               IPLMatches.forEach(function(md) {
                    console.log('md.team-1');
                 $matches.append('<li>'+md.team-1+' vs '+md.team-2+' </li>')
                });
