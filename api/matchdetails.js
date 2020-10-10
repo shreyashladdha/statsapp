@@ -2,7 +2,7 @@ var $matches = $('#card');
 
 $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", function(matchdata) {
 	matchdata.matches.forEach(function(md) {
-        console.log(md);
+        // console.log(md);
        
         var div1 =document.createElement("div");
         var head1 = document.createElement("h3");
