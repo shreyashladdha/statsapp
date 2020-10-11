@@ -1,7 +1,10 @@
 // const { pid } = require("process");
 
 var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
+var m;
+
 function getPlayerDetail(PID) {
+    console.log(m);
     console.log("get player detail FunctionCalled");
     var url = "https://cricapi.com/api/playerStats?apikey=" + APIKEY + "&pid=" + PID;
     console.log(url);
@@ -30,6 +33,7 @@ function getPlayerDetail(PID) {
                 image.src=imageURL;
                 playerStatCard.append(name);
                 playerStatCard.append(image,age,playRole,country,profile);
+                playerStatCard.className="playerStatCard";
                 searchResultDisplaySecid.append(playerStatCard);
             });
         }
@@ -50,15 +54,18 @@ function playerSearchFunction() {
                 console.log("there is a problem while fetching the search data. " + response.status);
                 return;
             }
+            m=new Map();
             response.json().then(function (result) {
                 for (var i = 0; i < result.data.length; i++) {
                     console.log(result.data[i].fullName);
-                    var temPlayer = result.data[i];
-                    var temDiv = document.createElement("button");
-                    var FullNameHead=document.createElement("h1");
+                    let temPlayer = result.data[i];
+                    let temDiv = document.createElement("div");
+                    temDiv.className="searchTile";
+                    let FullNameHead=document.createElement("h1");
                     FullNameHead.append(temPlayer.fullName);
                     temDiv.append(FullNameHead);
                     temDiv.addEventListener('click',()=>{getPlayerDetail(temPlayer.pid)});
+                    m.set(temDiv,temPlayer.pid);
                     searchResultDisplaySec.append(temDiv);
                 }
             });

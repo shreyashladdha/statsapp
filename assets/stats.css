@@ -1,0 +1,44 @@
+.player_search{
+    text-align: center;
+    padding-top: 2%;
+}
+.searchForm{
+    padding: 2%;
+}
+.inputPanel{
+    width: 60%;
+    height: 40px;
+    border-radius: 5%;
+    font-size: large;
+}
+.search_button{
+    width: auto;
+    height: 40px;
+    font-size: medium;
+    border-radius: 5%;
+}
+.search_result{
+    text-align: center;
+}
+.playerStatCard{
+    padding-top: 3%;
+    /* padding-bottom: 5%; */
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    border-style: groove;
+    border-width: medium;
+    /* border-color: black; */
+}
+.searchTile{
+    /* padding:2%; */
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 2%;
+    text-align: center;
+    border-style: groove;
+    border-width: medium;
+    text-align: center;
+    border-style: groove;
+    border-width: medium;
+}
