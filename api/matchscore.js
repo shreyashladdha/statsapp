@@ -27,6 +27,24 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
                                         head1.append(matchinfo["team-1"] + " vs " + matchinfo["team-2"]);
                                         content.append(head1);
                                         let started = matchinfo["matchStarted"];
+                                        if(started)
+                                        {
+                                                let status= document.createElement("h3");
+                                                let score= document.createElement("h3");
+                                                let description= document.createElement("h3");
+                                                status.innerHTML="status: "+matchinfo["stat"];
+                                                status.innerHTML="Score: "+matchinfo["score"];
+                                                status.innerHTML=matchinfo["description"];
+                                                content.append(status);
+                                                content.append(score);
+                                                content.append(description);
+                                                
+                                        }
+                                        else{
+                                                let status=document.createElement("h3");
+                                                status.innerHTML="Match yet to start! ";
+                                                content.append(status);
+                                        }
 
                                 })
                         }
