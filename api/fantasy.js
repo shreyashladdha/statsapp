@@ -81,6 +81,17 @@ $.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", fun
                   
                     });
                     
+                    result.data.team.forEach(function (md3){
+                        var pt=document.createElement("p");
+                        pt.append(md3.name);
+                        pt.append(" : ");
+                        md3.players.forEach(function(players){
+                            pt.append(players.name);
+                            pt.append(" ");
+                            div1.append(pt);
+                        });
+                    });
+
                     $matches.append(div1);
 
                 });
