@@ -13,7 +13,6 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
 	matchdata.matches.forEach(function(md) {
         if(IPLTeams.includes(md["team-1"]) && (md["matchStarted"])){
         console.log(md);
-        // var APIKEY ="ZMzYoyz7A8RHiCNQL2v0YzwN5W13";
         var id;
         id=md.unique_id;
         var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
