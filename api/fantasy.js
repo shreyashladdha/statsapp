@@ -5,19 +5,33 @@ var $matches = $('#card');
 // id=md.unique_id;
 // var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
 
+const IPLTeams=["Sunrisers Hyderabad","Rajasthan Royals","Chennai Super Kings","Kings XI Punjab","Mumbai Indians","Royal Challengers Bangalore","Kolkata Knight Riders","Delhi Capitals"];
+const Matchstatus=["true"];
+
 var $matches = $('#card');
 
-$.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", function(matchdata) {
+$.get("https://cricapi.com/api/matches?apikey=ElkrdAbSPebNQJyrrW5o7yxAJdn2", function(matchdata) {
 	matchdata.matches.forEach(function(md) {
         // console.log(md);
-        var APIKEY ="ZMzYoyz7A8RHiCNQL2v0YzwN5W13";
+        var APIKEY ="ElkrdAbSPebNQJyrrW5o7yxAJdn2";
         var id;
+        // const IPLMatch=md.filter( d=>(Matchstatus.includes((d["matchStarted"]))));
+        // const IPLMatches=IPLMatch.filter( d=>(IPLTeams.includes((d["team-1"]))));
+        // id=IPLMatches.unique_id;
+        var team=md["team-1"];
+        if(team=="Sunrisers Hyderabad"||team=="Royal Challengers Bangalore"||team=="Rajasthan Royals"||team=="Chennai Super Kings"||team=="Kings XI Punjab"||team=="Kolkata Knight Riders"||team=="Delhi Capitals")
+         {
+        // console.log(team);
+        // console.log(id);
+        // console.log(md.matchStarted);
+        if(md.matchStarted){ 
+        // console.log(team);
         id=md.unique_id;
         var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
         // console.log(url);
-        // var div1=document.createElement("div");
-        // var h1=document.createElement("h2");
-        // var h2=document.createElement("h3");
+        var div1=document.createElement("div");
+        var h1=document.createElement("h2");
+        var h2=document.createElement("h3");
         fetch(url).then(
             function (response) {
                 if (response.status !== 200) {
@@ -41,11 +55,11 @@ $.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", fun
                             p1.append(team.batsman);
                             p1.append(" ");
                             p1.append(team["dismissal-info"]);
-                            p1.append(" ")
+                            p1.append(" "); 
                             p1.append(team.R);
-                            p1.append("(")
+                            p1.append("( ")
                             p1.append(team.B);
-                            p1.append(")");
+                            p1.append(" )");
                             div1.append(p1);
                             
                         });
@@ -66,13 +80,13 @@ $.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", fun
                         p.append(team1.bowler);
                         p.append(" : ");
                         p.append(team1.O);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.M);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.R);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.W);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.Econ);
                         div1.append(p);
                         
@@ -87,7 +101,7 @@ $.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", fun
                         pt.append(" : ");
                         md3.players.forEach(function(players){
                             pt.append(players.name);
-                            pt.append(" ");
+                            pt.append("  ");pt.append("  ");
                             div1.append(pt);
                         });
                     });
@@ -96,8 +110,11 @@ $.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", fun
 
                 });
             }
+        
         );
 
-       
+        }
+    }
+
 	});
 });
