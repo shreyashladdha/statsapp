@@ -1,16 +1,19 @@
 var $matches = $('#card');
+const IPLTeams = ["Sunrisers Hyderabad", "Rajasthan Royals", "Chennai Super Kings", "Kings XI Punjab", "Mumbai Indians", "Royal Challengers Bangalore", "Kolkata Knight Riders", "Delhi Capitals"];
 
-// var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
+var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
 // var id;
 // id=md.unique_id;
 // var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
 
 var $matches = $('#card');
 
-$.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", function(matchdata) {
+$.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", function(matchdata) {
+    console.log(matchdata)
 	matchdata.matches.forEach(function(md) {
-        // console.log(md);
-        var APIKEY ="ZMzYoyz7A8RHiCNQL2v0YzwN5W13";
+        if(IPLTeams.includes(md["team-1"]) && (md["matchStarted"])){
+        console.log(md);
+        // var APIKEY ="ZMzYoyz7A8RHiCNQL2v0YzwN5W13";
         var id;
         id=md.unique_id;
         var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
@@ -99,5 +102,5 @@ $.get("https://cricapi.com/api/matches?apikey=ZMzYoyz7A8RHiCNQL2v0YzwN5W13", fun
         );
 
        
-	});
+	}});
 });
