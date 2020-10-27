@@ -1,25 +1,26 @@
 var $matches = $('#card');
 const IPLTeams = ["Sunrisers Hyderabad", "Rajasthan Royals", "Chennai Super Kings", "Kings XI Punjab", "Mumbai Indians", "Royal Challengers Bangalore", "Kolkata Knight Riders", "Delhi Capitals"];
 
-var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
-// var id;
-// id=md.unique_id;
-// var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
+
+const IPLTeams=["Sunrisers Hyderabad","Rajasthan Royals","Chennai Super Kings","Kings XI Punjab","Mumbai Indians","Royal Challengers Bangalore","Kolkata Knight Riders","Delhi Capitals"];
+const Matchstatus=["true"];
 
 var $matches = $('#card');
 
-$.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", function(matchdata) {
-    console.log(matchdata)
+$.get("https://cricapi.com/api/matches?apikey=ElkrdAbSPebNQJyrrW5o7yxAJdn2", function(matchdata) {
 	matchdata.matches.forEach(function(md) {
-        if(IPLTeams.includes(md["team-1"]) && (md["matchStarted"])){
-        console.log(md);
+        var APIKEY ="ElkrdAbSPebNQJyrrW5o7yxAJdn2";
         var id;
+        var team=md["team-1"];
+        if(team=="Sunrisers Hyderabad"||team=="Royal Challengers Bangalore"||team=="Rajasthan Royals"||team=="Chennai Super Kings"||team=="Kings XI Punjab"||team=="Kolkata Knight Riders"||team=="Delhi Capitals")
+         {
+        if(md.matchStarted){ 
         id=md.unique_id;
         var url = "https://cricapi.com/api/fantasySummary?apikey=" + APIKEY + "&unique_id=" + id;
         // console.log(url);
-        // var div1=document.createElement("div");
-        // var h1=document.createElement("h2");
-        // var h2=document.createElement("h3");
+        var div1=document.createElement("div");
+        var h1=document.createElement("h2");
+        var h2=document.createElement("h3");
         fetch(url).then(
             function (response) {
                 if (response.status !== 200) {
@@ -27,8 +28,8 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
                     return;
                 }
                 response.json().then(function (result) {
-                    // console.log(result);
                     var div1=document.createElement("div");
+                    var div2=document.createElement("div");
                     var h3=document.createElement("h2");
                     h3.append("Batting Stats for the Match");
                     div1.append(h3);
@@ -43,11 +44,11 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
                             p1.append(team.batsman);
                             p1.append(" ");
                             p1.append(team["dismissal-info"]);
-                            p1.append(" ")
+                            p1.append(" "); 
                             p1.append(team.R);
-                            p1.append("(")
+                            p1.append("( ")
                             p1.append(team.B);
-                            p1.append(")");
+                            p1.append(" )");
                             div1.append(p1);
                             
                         });
@@ -56,32 +57,36 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
 
                     var h1=document.createElement("h2");
                     h1.append("Bowling Stats for the Match");
-                    div1.append(h1);
+                    div2.append(h1);
 
                     result.data.bowling.forEach(function (md1) {
-                    var h2=document.createElement("h3");
+                    var h2=document.createElement("h2");
                     h2.append(md1.title);
-                    div1.append(h2);
+                    div2.append(h2);
                     // console.log(md1);
                     md1.scores.forEach(function(team1){
                         var p=document.createElement("p");
                         p.append(team1.bowler);
                         p.append(" : ");
                         p.append(team1.O);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.M);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.R);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.W);
-                        p.append("-");
+                        p.append(" - ");
                         p.append(team1.Econ);
-                        div1.append(p);
+                        div2.append(p);
                         
                     });
                   
                   
                     });
+
+                    var h21=document.createElement("h2");
+                    h21.append("Playing 11");
+                    div2.append(h21);
                     
                     result.data.team.forEach(function (md3){
                         var pt=document.createElement("p");
@@ -89,17 +94,21 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
                         pt.append(" : ");
                         md3.players.forEach(function(players){
                             pt.append(players.name);
-                            pt.append(" ");
-                            div1.append(pt);
+                            pt.append("  ");pt.append("  ");
+                            div2.append(pt);
                         });
                     });
 
                     $matches.append(div1);
+                    $matches.append(div2);
 
                 });
             }
+        
         );
 
-       
-	}});
+        }
+    }
+
+	});
 });

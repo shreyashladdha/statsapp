@@ -24,6 +24,8 @@ function getPlayerDetail(PID) {
                 country=document.createElement('h6'),
                 profile=document.createElement('h6'),
                 playRole=document.createElement('h6'),
+                bowltable=document.createElement('table'),
+                battable=document.createElement('table'),
                 imageURL=result["imageURL"],
                 image=document.createElement('img');
                 name.append(result.fullName);
@@ -33,6 +35,42 @@ function getPlayerDetail(PID) {
                 image.src=imageURL;
                 playerStatCard.append(name);
                 playerStatCard.append(image,age,playRole,country,profile);
+                
+                // var row1=document.createElement("tr");
+                // row1.append("<th>Bowling</th>");
+                // row1.append("<th>Matches</th>");
+                // row1.append("<th>Wickets</th>");
+                // row1.append("<th>Average</th>");
+                // row1.append("<th>Economy</th>");
+                // row1.append("<th>Strike Rate</th>");
+                // row1.append("<th>BestFigures</th>");
+               
+
+                // var row2=document.createElement("tr");
+                // row2.append("<td>List-A</td>")
+                // row2.append('<td>'+result.data.bowling.listA.Mat+'</td>')
+                // row2.append('<td>'+result.data.bowling.listA.Wkts+'</td>')
+                // row2.append('<td>'+result.data.bowling.listA.Ave+'</td>')
+                // row2.append('<td>'+result.data.bowling.listA.Econ+'</td>')
+                // row2.append('<td>'+result.data.bowling.listA.SR+'</td>')
+                // row2.append('<td>'+result.data.bowling.listA.BBI+'</td>')
+
+                // var row3=document.createElement("tr");
+                // row3.append("<td>First-Class</td>")
+                // row3.append('<td>'+result.data.bowling.firstClass.Mat+'</td>')
+                // row3.append('<td>'+result.data.bowling.firstClass.Wkts+'</td>')
+                // row3.append('<td>'+result.data.bowling.firstClass.Ave+'</td>')
+                // row3.append('<td>'+result.data.bowling.firstClass.Econ+'</td>')
+                // row3.append('<td>'+result.data.bowling.firstClass.SR+'</td>')
+                // row3.append('<td>'+result.data.bowling.firstClass.BBI+'</td>')
+
+                // bowltable.append(row1,row2,row3);
+                // playerStatCard.append(bowltable);
+                
+
+
+
+
                 playerStatCard.className="playerStatCard";
                 searchResultDisplaySecid.append(playerStatCard);
             });

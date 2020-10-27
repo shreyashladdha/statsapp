@@ -1,28 +1,21 @@
-*{
-    width: 100%;
-    padding: 0px;
-    margin: 0px;
-}
+
 #card > div {
-    /* Add shadows to create the "card" effect */
     display: inline;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 50%;
   }
-
-  /* Add some padding inside the card container */
   #card > div {
     padding: 2px 16px;
    
   }
-
   #card {
       display: flex;
       padding: 20px;
       flex-wrap: wrap;
       /* transition: transform .2s; */
   }
+
   @media screen and (max-width: 600px) {
     #card > div {
       width: 100%;
