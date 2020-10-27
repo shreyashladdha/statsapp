@@ -1,6 +1,8 @@
 
 const IPLTeams=["Sunrisers Hyderabad","Rajasthan Royals","Chennai Super Kings","Kings XI Punjab","Mumbai Indians","Royal Challengers Bangalore","Kolkata Knight Riders","Delhi Capitals"];
 var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
+var $matches = $('#matches-1');
+
 var requestURL = "https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2"
 fetch(requestURL).then(
         function (response) {
@@ -13,8 +15,13 @@ fetch(requestURL).then(
                 console.log(data);
                 const IPLMatches=data.matches.filter( d=>(IPLTeams.includes((d["team-1"]))));
                 console.log(IPLMatches);
-                var body=document.getElementById("matchList");
-                body.innerHTML=String(IPLMatches);
+                // var body=document.getElementById("matchList");
+                // body.innerHTML=String(IPLMatches);
+               IPLMatches.forEach(function(md) {
+                   console.log('md.team-1');
+                $matches.append('<li>'+md.team-1+' vs '+md.team-2+' </li>')
+               });
+                
             });
         }
     );
