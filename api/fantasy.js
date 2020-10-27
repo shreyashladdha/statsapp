@@ -1,5 +1,4 @@
 var $matches = $('#card');
-const IPLTeams = ["Sunrisers Hyderabad", "Rajasthan Royals", "Chennai Super Kings", "Kings XI Punjab", "Mumbai Indians", "Royal Challengers Bangalore", "Kolkata Knight Riders", "Delhi Capitals"];
 
 
 const IPLTeams=["Sunrisers Hyderabad","Rajasthan Royals","Chennai Super Kings","Kings XI Punjab","Mumbai Indians","Royal Challengers Bangalore","Kolkata Knight Riders","Delhi Capitals"];
