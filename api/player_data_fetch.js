@@ -35,6 +35,8 @@ function getPlayerDetail(PID) {
                 image.src=imageURL;
                 playerStatCard.append(name);
                 playerStatCard.append(image,age,playRole,country,profile);
+                bowltable.setAttribute("id", "customers");
+                battable.setAttribute("id", "customers");
                 
                 var row1=document.createElement('tr');
                 var row11=document.createElement('th');
