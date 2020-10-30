@@ -52,8 +52,13 @@ function getPlayerDetail(PID) {
                 var row17=document.createElement('th');
                 row17.append("Best");
                 row1.append(row11,row12,row13,row14,row15,row16,row17);
+                bowltable.append(row1);
                
+                var x = "undefined";
 
+
+                if (typeof(result.data.bowling.listA) != 'undefined') 
+                {
                 var row2=document.createElement('tr');
                 var row21=document.createElement('th');
                 row21.append("ListA");
@@ -70,7 +75,11 @@ function getPlayerDetail(PID) {
                 var row27=document.createElement('th');
                 row27.append(result.data.bowling.listA.BBI);
                 row2.append(row21,row22,row23,row24,row25,row26,row27);
+                bowltable.append(row2);
+                }
 
+                if (typeof(result.data.bowling.firstClass) != 'undefined') 
+                {
                 var row3=document.createElement('tr');
                 var row31=document.createElement('th');
                 row31.append("F-class");
@@ -87,7 +96,11 @@ function getPlayerDetail(PID) {
                 var row37=document.createElement('th');
                 row37.append(result.data.bowling.firstClass.BBI);
                 row3.append(row31,row32,row33,row34,row35,row36,row37);
-
+                bowltable.append(row3);
+                }
+                
+                if (typeof(result.data.bowling.tests) != 'undefined') 
+                {
                 var row4=document.createElement('tr');
                 var row41=document.createElement('th');
                 row41.append("Test");
@@ -104,7 +117,11 @@ function getPlayerDetail(PID) {
                 var row47=document.createElement('th');
                 row47.append(result.data.bowling.tests.BBI);
                 row4.append(row41,row42,row43,row44,row45,row46,row47);
+                bowltable.append(row4);
+                }
 
+                if (typeof(result.data.bowling.ODIs) != 'undefined') 
+                {
                 var row5=document.createElement('tr');
                 var row51=document.createElement('th');
                 row51.append("ODI");
@@ -121,7 +138,11 @@ function getPlayerDetail(PID) {
                 var row57=document.createElement('th');
                 row57.append(result.data.bowling.ODIs.BBI);
                 row5.append(row51,row52,row53,row54,row55,row56,row57);
+                bowltable.append(row5);
+                }
 
+                if (typeof(result.data.bowling.T20Is) != 'undefined') 
+                {
                 var row6=document.createElement('tr');
                 var row61=document.createElement('th');
                 row61.append("T20");
@@ -138,8 +159,8 @@ function getPlayerDetail(PID) {
                 var row67=document.createElement('th');
                 row67.append(result.data.bowling.T20Is.BBI);
                 row6.append(row61,row62,row63,row64,row65,row66,row67);
-
-
+                bowltable.append(row6);
+                }
 
                 var row01=document.createElement('tr');
                 var row011=document.createElement('th');
@@ -157,8 +178,10 @@ function getPlayerDetail(PID) {
                 var row017=document.createElement('th');
                 row017.append("Best");
                 row01.append(row011,row012,row013,row014,row015,row016,row017);
+                battable.append(row01);
                
-
+                if (typeof(result.data.batting.listA) != 'undefined') 
+                {
                 var row02=document.createElement('tr');
                 var row021=document.createElement('th');
                 row021.append("ListA");
@@ -175,7 +198,11 @@ function getPlayerDetail(PID) {
                 var row027=document.createElement('th');
                 row027.append(result.data.batting.listA.HS);
                 row02.append(row021,row022,row023,row024,row025,row026,row027);
+                battable.append(row02);
+                }
 
+                if (typeof(result.data.batting.firstClass) != 'undefined') 
+                {
                 var row03=document.createElement('tr');
                 var row031=document.createElement('th');
                 row031.append("F-class");
@@ -192,7 +219,11 @@ function getPlayerDetail(PID) {
                 var row037=document.createElement('th');
                 row037.append(result.data.batting.firstClass.HS);
                 row03.append(row031,row032,row033,row034,row035,row036,row037);
+                battable.append(row03);
+                }
 
+                if (typeof(result.data.batting.tests) != 'undefined') 
+                {
                 var row04=document.createElement('tr');
                 var row041=document.createElement('th');
                 row041.append("Test");
@@ -209,7 +240,11 @@ function getPlayerDetail(PID) {
                 var row047=document.createElement('th');
                 row047.append(result.data.batting.tests.HS);
                 row04.append(row041,row042,row043,row044,row045,row046,row047);
+                battable.append(row04);
+                }
 
+                if (typeof(result.data.batting.ODIs) != 'undefined') 
+                {
                 var row05=document.createElement('tr');
                 var row051=document.createElement('th');
                 row051.append("ODI");
@@ -226,7 +261,11 @@ function getPlayerDetail(PID) {
                 var row057=document.createElement('th');
                 row057.append(result.data.batting.ODIs.HS);
                 row05.append(row051,row052,row053,row054,row055,row056,row057);
+                battable.append(row05);
+                }
 
+                if (typeof(result.data.batting.T20Is) != 'undefined') 
+                {
                 var row06=document.createElement('tr');
                 var row061=document.createElement('th');
                 row061.append("T20");
@@ -243,13 +282,14 @@ function getPlayerDetail(PID) {
                 var row067=document.createElement('th');
                 row067.append(result.data.batting.T20Is.HS);
                 row06.append(row061,row062,row063,row064,row065,row066,row067);
+                battable.append(row06);
+                }
 
-                bowltable.append(row01,row02,row03,row04,row05,row06);
-                battable.append(row1,row2,row3,row4,row5,row6);
+                // bowltable.append(row01,row02,row03,row04,row05,row06);
+                // battable.append(row1,row2,row3,row4,row5,row6);
 
-
-                playerStatCard.append(bowltable);
                 playerStatCard.append(battable);
+                playerStatCard.append(bowltable);
                 
 
                 playerStatCard.className="playerStatCard";
