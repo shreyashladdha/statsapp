@@ -6,9 +6,9 @@ const Matchstatus=["true"];
 
 var $matches = $('#card');
 
-$.get("https://cricapi.com/api/matches?apikey=ElkrdAbSPebNQJyrrW5o7yxAJdn2", function(matchdata) {
+$.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", function(matchdata) {
 	matchdata.matches.forEach(function(md) {
-        var APIKEY ="ElkrdAbSPebNQJyrrW5o7yxAJdn2";
+        var APIKEY ="ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2";
         var id;
         var team=md["team-1"];
         if(team=="Sunrisers Hyderabad"||team=="Royal Challengers Bangalore"||team=="Rajasthan Royals"||team=="Chennai Super Kings"||team=="Kings XI Punjab"||team=="Kolkata Knight Riders"||team=="Delhi Capitals")
@@ -34,9 +34,47 @@ $.get("https://cricapi.com/api/matches?apikey=ElkrdAbSPebNQJyrrW5o7yxAJdn2", fun
                     div1.append(h3);
 
                     result.data.batting.forEach(function (md2) {
-                        var bathead=document.createElement("h2");
-                         bathead.append(md2.title);
+                        var bathead=document.createElement("h3");
+                        var image=document.createElement("img");
+                        var source;
+                        bathead.append(md2.title);
+                        if((md2.title).includes("Chennai Super Kings"))
+                        {
+                            source="assets/team/CSK.png";
+                        }
+                        if((md2.title).includes("Kolkata Knight Riders"))
+                        {
+                            source="assets/team/KKR.png";
+                        }
+                        if((md2.title).includes("Kings XI Punjab"))
+                        {
+                            source="assets/team/KXIP.png";
+                        }
+                        if((md2.title).includes("Rajasthan Royals"))
+                        {
+                            source="assets/team/RR.png";
+                        }
+                        if((md2.title).includes("Royal Challengers Bangalore"))
+                        {
+                            source="assets/team/RCB.png";
+                        }
+                        if((md2.title).includes("Sunrisers Hyderabad"))
+                        {
+                            source="assets/team/SRH.png";
+                        }
+                        if((md2.title).includes("Delhi Capitals"))
+                        {
+                            source="assets/team/DC.png";
+                        }
+                        if((md2.title).includes("Mumbai Indians"))
+                        {
+                            source="assets/team/MI.png";
+                        }
+                         image.src=source;
+                        bathead.className="inline";
+                         div1.append(image);
                          div1.append(bathead);
+                         
 
                         md2.scores.forEach(function(team){
                             var p1=document.createElement("p");
@@ -59,9 +97,48 @@ $.get("https://cricapi.com/api/matches?apikey=ElkrdAbSPebNQJyrrW5o7yxAJdn2", fun
                     div2.append(h1);
 
                     result.data.bowling.forEach(function (md1) {
-                    var h2=document.createElement("h2");
+                    var h2=document.createElement("h3");
+                    var image=document.createElement("img");
+                    var source;
                     h2.append(md1.title);
-                    div2.append(h2);
+                    if((md1.title).includes("Chennai Super Kings"))
+                    {
+                        source="assets/team/CSK.png";
+                    }
+                    if((md1.title).includes("Kolkata Knight Riders"))
+                    {
+                        source="assets/team/KKR.png";
+                    }
+                    if((md1.title).includes("Kings XI Punjab"))
+                    {
+                        source="assets/team/KXIP.png";
+                    }
+                    if((md1.title).includes("Rajasthan Royals"))
+                    {
+                        source="assets/team/RR.png";
+                    }
+                    if((md1.title).includes("Royal Challengers Bangalore"))
+                    {
+                        source="assets/team/RCB.png";
+                    }
+                    if((md1.title).includes("Sunrisers Hyderabad"))
+                    {
+                        source="assets/team/SRH.png";
+                    }
+                    if((md1.title).includes("Delhi Capitals"))
+                    {
+                        source="assets/team/DC.png";
+                    }
+                    if((md1.title).includes("Mumbai Indians"))
+                    {
+                        source="assets/team/MI.png";
+                    }
+                     image.src=source;
+                     h2.className="inline";
+                     div2.append(image);
+                     div2.append(h2);
+                    // h2.append(md1.title);
+                    // div2.append(h2);
                     // console.log(md1);
                     md1.scores.forEach(function(team1){
                         var p=document.createElement("p");
