@@ -103,19 +103,17 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
         par1.append("Match Won By : ");
         par1.append(md.winner_team);
         }
-        else
-        {
-        par1.append("Match is in progress stay tuned for Result")
-        }
-
-
     
         var y=md.toss_winner_team;
         if(x.localeCompare(y)!=0)
         {
         par.append("Toss Won By : ");
         par.append(md.toss_winner_team);
-       }
+        if(x.localeCompare(y1)==0)
+        {
+         par1.append("Match is in progress stay tuned for Result")
+        }
+         }
         else
         {
         par.append("Toss is yet to be conducted ");

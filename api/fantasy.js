@@ -83,9 +83,9 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
                             p1.append(team["dismissal-info"]);
                             p1.append(" "); 
                             p1.append(team.R);
-                            p1.append("( ")
+                            p1.append("(")
                             p1.append(team.B);
-                            p1.append(" )");
+                            p1.append(")");
                             div1.append(p1);
                             
                         });
