@@ -9,10 +9,11 @@ $.get("https://cricapi.com/api/matches?apikey=ex8FSAqtj7ZHRZMr3Hckaz6RJ7Y2", fun
 
                         var div1 = document.createElement("div");
                         var head1 = document.createElement("h3");
-                        var date = document.createElement("h5");
+                        var date = document.createElement("h3");
 
                         head1.append(md["team-1"] + " vs " + md["team-2"]);
                         div1.append(head1);
+                        date.append("Date : ");
                         date.append(md["date"].substring(0, 10));
                         div1.append(date)
                         $matches.append(div1);
